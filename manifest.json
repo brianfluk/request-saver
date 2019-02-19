@@ -1,0 +1,21 @@
+{
+    "name": "Request Saver",
+    "version": "1.0",
+    "description": "Save network requests to/from a host and save it to the mock-server app.",
+    "permissions": [
+        "activeTab", 
+        "declarativeContent",
+        "storage",
+        "webRequest",
+        "http://localhost:3000/"
+    ],
+    "options_page": "options.html",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}

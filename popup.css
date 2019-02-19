@@ -1,0 +1,45 @@
+input {
+    outline: none;
+    margin: 2px;
+    border-radius: 3px;
+    border: 2px transparent;
+    background-color: rgb(213, 233, 233);
+    height: 24px;
+    padding: 0px;
+    width: 180px;
+}
+
+button {
+    outline: none;
+    margin: 2px;
+    height: 24px;
+    border-radius: 3px;
+    border: 2px transparent;
+    background-color: rgb(131, 194, 212);
+    color: white;
+    width: 100%;
+    /* margin-left: -10px; */
+}
+
+button:hover {
+    background-color: rgb(80, 150, 190);
+}
+
+.title {
+    text-align: center;
+}
+
+#container {
+    padding: 20px;
+    padding-top: 10px;
+}
+
+.flex-row {
+    display: flex;
+}
+.flex-1 {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
+}

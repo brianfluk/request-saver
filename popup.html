@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="popup.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="title">Request Saver</h1>
+        <div class="flex-row">
+            <input class="flex-2" id="targetURL" type="text" placeholder="hostname.com"></input>
+            <button class="flex-1" id="targetURLBtn">Save</button>
+        </div>
+        <div class="flex-row">
+            <input class="flex-2" id="mockServerURL" type="text" placeholder="http://localhost:3000/"></input>
+            <button class="flex-1" id="mockServerURLBtn">Save</button>
+        </div>
+        <button>Disable</button>
+        <button id="enableBtn">Enable</button>
+        <button id="sendReqBtn">Send Request</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
