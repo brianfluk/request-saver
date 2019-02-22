@@ -11,26 +11,10 @@ document.getElementById('enableBtn').addEventListener('click', function() {
     console.log('log: enabled')
     window.alert('Updated names');
 })
-document.getElementById('sendReqBtn').addEventListener('click', function() {
-    // console.log('log: enabled')
-    // window.alert('Updated names');
-    var hostNamePost;
-    console.log("mockServerURL's url: ", document.getElementById('mockServerURL').value)
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:3000/smcfs/language/en.json", false);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            var result = xhr.responseText;
-            window.alert('result', result);
-            console.log('result', result);
-        }
-    };
-    xhr.send();
-})
 
 document.getElementById('mockServerURLBtn').addEventListener('click', function() {
     chrome.storage.sync.get('mockServerURL', function(data) {
-        console.log('current value:', data.mockServerURL);
+        console.log('mock server before update:', data.mockServerURL);
     });
     let mockServerURL = document.getElementById('mockServerURL').value
     if (mockServerURL) {
@@ -39,10 +23,61 @@ document.getElementById('mockServerURLBtn').addEventListener('click', function()
 })
 document.getElementById('targetURLBtn').addEventListener('click', function() {
     chrome.storage.sync.get('targetURL', function(data) {
-        console.log('current value:', data.mockServerURL);
+        console.log('target url before update:', data.targetURL);
     });
-    let mockServerURL = document.getElementById('targetURL').value
-    if (mockServerURL) {
-        chrome.storage.sync.set({ 'targetURL': mockServerURL });
+    let targetURL = document.getElementById('targetURL').value
+    if (targetURL) {
+        chrome.storage.sync.set({ 'targetURL': targetURL });
     }
+})
+
+document.getElementById('sendGETReqBtn').addEventListener('click', function() {
+    let url = "http://localhost:3000/smcfs/language/en.json";
+    // console.log("get data from  ", document.getElementById('mockServerURL').value)
+    console.log("get data from  ", url)
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var result = xhr.responseText;
+            console.log('result', result);
+        }
+    };
+    xhr.send();
+})
+
+document.getElementById('sendPOSTReqBtn').addEventListener('click', function() {
+    var hostNamePost;
+    chrome.storage.sync.get('mockServerURL', function(data) {
+        hostNamePost = data.mockServerURL;
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3000/", true); // replace localhost3000 with hostNamePost
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText;
+            console.log('result', result);
+        }
+    };
+    xhr.send(`{
+        "endpoint": "/smcfs/language/en.json",
+        "payload": {
+            "info": "request payload"
+        },
+        "response": {
+            "language": "en",
+            "height": 111,
+            "width": 12,
+            "hi": "a",
+            "bye": "yup, bye!!!!",
+            "sub": {
+                "lol": 1337
+            }
+        },
+        "method": "GET",
+        "ipr": 0
+    }`);
 })

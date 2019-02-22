@@ -7,7 +7,11 @@
         "declarativeContent",
         "storage",
         "webRequest",
-        "http://localhost:3000/"
+        "http://localhost:3000/",
+        "http://*/",
+        "*://*/",
+        "<all_urls>",
+        "debugger"
     ],
     "options_page": "options.html",
     "background": {
@@ -17,5 +21,6 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
+    "devtools_page": "devtools.html",
     "manifest_version": 2
 }

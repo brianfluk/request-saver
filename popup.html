@@ -7,18 +7,23 @@
 
 <body>
     <div id="container">
-        <h1 class="title">Request Saver</h1>
+        <h1 class="title">Mock Server</h1>
+        <div class="label">Target URL</div>
         <div class="flex-row">
             <input class="flex-2" id="targetURL" type="text" placeholder="hostname.com"></input>
             <button class="flex-1" id="targetURLBtn">Save</button>
         </div>
+        <br>
+        <div class="label">Mock Server URL</div>
         <div class="flex-row">
             <input class="flex-2" id="mockServerURL" type="text" placeholder="http://localhost:3000/"></input>
             <button class="flex-1" id="mockServerURLBtn">Save</button>
         </div>
+        <br>
         <button>Disable</button>
         <button id="enableBtn">Enable</button>
-        <button id="sendReqBtn">Send Request</button>
+        <button id="sendGETReqBtn">Send GET Request</button>
+        <button id="sendPOSTReqBtn">Send POST Request</button>
     </div>
 
     <script src="popup.js"></script>
