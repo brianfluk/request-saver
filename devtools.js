@@ -5,7 +5,6 @@ chrome.devtools.panels.create("Mock Server",
         console.log('Mock Server Panel created');
         chrome.devtools.network.onRequestFinished.addListener(function(details){
             console.log("DEVTOOLS NETWORK INCOMING CALL", details);
-            // console.log("DEVTOOLS NETWORK MONITOR getContent", details.getContent()); // should work if details.response.content.mimeType == "application/json"
             let mockServerURL = chrome.extension.getBackgroundPage().mockServerURL.replace(/^\/|\/$/g, '');
             let targetURL = chrome.extension.getBackgroundPage().targetURL.replace(/^\/|\/$/g, '');
 
@@ -61,15 +60,14 @@ chrome.devtools.panels.create("Mock Server",
                             console.log("TOTAL UPLOAD COMPLETE, xhr: ", xhr2)
                         }
                         console.log('mockServerFormat', mockServerFormat)
-                        xhr2.send(mockServerFormat)
-                        // send that modified responsetext object back to mockServerURL via POST
                         // part 2
+                        xhr2.send(JSON.stringify(mockServerFormat))
                     }
                 };
                 console.log("originalPayload", originalPayload)
                 console.log('desiredEndpoint', desiredEndpoint)
                 console.log('details.request.method', details.request.method)
-                xhr.send(originalPayload);
+                xhr.send(JSON.stringify(originalPayload));
             })
         });
     }

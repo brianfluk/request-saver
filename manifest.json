@@ -11,7 +11,6 @@
         "http://*/",
         "*://*/",
         "<all_urls>",
-        "debugger",
         "tabs"
     ],
     "options_page": "options.html",
@@ -23,12 +22,5 @@
         "default_popup": "popup.html"
     },
     "devtools_page": "devtools.html",
-    "content_scripts": [
-        {
-            "matches": ["http://*/", "https://*/"],
-            "css": ["content.css"],
-            "js": ["responseScript.js"]
-        }
-    ],
     "manifest_version": 2
 }
