@@ -7,7 +7,7 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ 'mockServerURL': 'http://localhost:3000/', 'targetURL': 'http://someOMSIthing' });
 
     /** Listen to outgoing requests */
-    chrome.webRequest.onBeforeRequest.addListener(function(details) {
+    chrome.webRequest.onBeforeRequest.addListener(async function(details) {
             chrome.storage.sync.get('targetURL', function(data) {
                 targetURL = data.targetURL;
             });
@@ -21,6 +21,9 @@ chrome.runtime.onInstalled.addListener(function () {
             let requestURL = new URL(details.url);
             console.log("request url", requestURL);
 
+            console.log("requestURL.origin",requestURL.origin)
+            console.log("targetURL",targetURL)
+
             if (requestURL.origin == targetURL && requestURL.origin != mockServerURL) { // disallow tracking mock server itself
                 console.log('requestURL.origin ==', targetURL)
                 let sendUrlEndpoint = requestURL.pathname + requestURL.search;
@@ -32,7 +35,8 @@ chrome.runtime.onInstalled.addListener(function () {
                     sendPayload = {};
                 }
                 console.log('sendPayload', sendPayload)
-    
+                
+                console.log('mockServerURL gonna send part 1,', mockServerURL)
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", mockServerURL, true); // replace localhost3000 with hostNamePost
                 xhr.setRequestHeader('Content-type', 'application/json');
@@ -42,7 +46,7 @@ chrome.runtime.onInstalled.addListener(function () {
                         console.log('result', result);
                     }
                 };
-                xhr.send(JSON.stringify({
+                xhr.send(JSON.stringify({ // part 1
                     "endpoint": sendUrlEndpoint,
                     "payload": sendPayload,
                     "response": {},
@@ -63,9 +67,9 @@ chrome.runtime.onInstalled.addListener(function () {
     //     ["responseHeaders"]
     // )
 
-    chrome.debugger.onEvent.addListener(function(source, method, params) {
-        console.log(' INCOMING:params.response', params.response)
-    })
+    // chrome.debugger.onEvent.addListener(function(source, method, params) {
+    //     console.log(' INCOMING:params.response', params.response)
+    // })
 
 });
 
