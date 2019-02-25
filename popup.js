@@ -44,53 +44,53 @@ document.getElementById('targetURLBtn').addEventListener('click', function() {
     }
 })
 
-document.getElementById('sendGETReqBtn').addEventListener('click', function() {
-    let url = "http://localhost:3000/smcfs/language/en.json";
-    // console.log("get data from  ", document.getElementById('mockServerURL').value)
-    console.log("get data from  ", url)
+// document.getElementById('sendGETReqBtn').addEventListener('click', function() {
+//     let url = "http://localhost:3000/smcfs/language/en.json";
+//     // console.log("get data from  ", document.getElementById('mockServerURL').value)
+//     console.log("get data from  ", url)
     
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            var result = xhr.responseText;
-            console.log('result', result);
-        }
-    };
-    xhr.send();
-})
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", url, true);
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState == 4) {
+//             var result = xhr.responseText;
+//             console.log('result', result);
+//         }
+//     };
+//     xhr.send();
+// })
 
-document.getElementById('sendPOSTReqBtn').addEventListener('click', function() {
-    var hostNamePost;
-    chrome.storage.sync.get('mockServerURL', function(data) {
-        hostNamePost = data.mockServerURL;
-    });
+// document.getElementById('sendPOSTReqBtn').addEventListener('click', function() {
+//     var hostNamePost;
+//     chrome.storage.sync.get('mockServerURL', function(data) {
+//         hostNamePost = data.mockServerURL;
+//     });
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/", true); // replace localhost3000 with hostNamePost
-    xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = xhr.responseText;
-            console.log('result', result);
-        }
-    };
-    xhr.send(`{
-        "endpoint": "/smcfs/language/en.json",
-        "payload": {
-            "info": "request payload"
-        },
-        "response": {
-            "language": "en",
-            "height": 111,
-            "width": 12,
-            "hi": "a",
-            "bye": "yup, bye!!!!",
-            "sub": {
-                "lol": 1337
-            }
-        },
-        "method": "GET",
-        "ipr": 0
-    }`);
-})
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("POST", "http://localhost:3000/", true); // replace localhost3000 with hostNamePost
+//     xhr.setRequestHeader('Content-type', 'application/json');
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState == 4) {
+//             var result = xhr.responseText;
+//             console.log('result', result);
+//         }
+//     };
+//     xhr.send(`{
+//         "endpoint": "/smcfs/language/en.json",
+//         "payload": {
+//             "info": "request payload"
+//         },
+//         "response": {
+//             "language": "en",
+//             "height": 111,
+//             "width": 12,
+//             "hi": "a",
+//             "bye": "yup, bye!!!!",
+//             "sub": {
+//                 "lol": 1337
+//             }
+//         },
+//         "method": "GET",
+//         "ipr": 0
+//     }`);
+// })
