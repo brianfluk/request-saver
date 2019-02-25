@@ -1,6 +1,6 @@
 chrome.devtools.panels.create("Mock Server",
     "/icons/icon16.png",
-    "panel.html",
+    "options.html",
     function(panel) {
         console.log('Mock Server Panel created');
         chrome.devtools.network.onRequestFinished.addListener(function(details){
@@ -28,6 +28,7 @@ chrome.devtools.panels.create("Mock Server",
                 } else {
                     // doesn't match so dont even include this else. I'm just leaving it here for development purposes
                     console.log(`target endpoint is ${targetURL} but this origin is ${requestFullURL.origin}`)
+                    return
                 }
 
                 // get the ipr data from the mock server by replicating call to mock

@@ -2,30 +2,30 @@
 <html>
 
 <head>
+    <link href="popup.css" rel="stylesheet">
     <link href="options.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="container">
-        <h1>Request Saver: Options</h1>
-        <span class="flex-container">
-            <input type="text" class="full-width" placeholder="hostname.com"></input>
-        </span>
-        <br> 
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        insert a list here <br>
-        <button id="updateBtn">Update hostnames</button>
-        <button>Disable</button>
-        <button>Enable</button>
+        <h1>Mock Server: Options</h1>
         
-    </div>
+        <div class="flex-row">
+            <div class="label flex-sidebar vertical-center right-align">Target URL</div>
+            <input class="flex-2" id="targetURL" type="text" placeholder="hostname.com"></input>
+            <button class="flex-sidebar" id="targetURLBtn">Save</button>
+        </div>
+        <br>
+        <div class="flex-row">
+            <div class="label flex-sidebar vertical-center right-align">Mock Server URL</div>
+            <input class="flex-2" id="mockServerURL" type="text" placeholder="http://localhost:3000/"></input>
+            <button class="flex-sidebar" id="mockServerURLBtn">Save</button>
+        </div>
+        <br>
+        <div id="enableWrapper">
+            <button id="enableBtn" class="full-width"><span class="enableDisableMainLabel">Enable</span> <br>(currently NOT running)</button>
+            <button id="disableBtn" class="full-width"><span class="enableDisableMainLabel">Disable</span> <br>(currently running)</button>
+        </div>
 
     <script src="popup.js"></script>
 </body>

@@ -4,36 +4,25 @@ input {
     border-radius: 3px;
     border: 2px transparent;
     background-color: rgb(213, 233, 233);
-    height: 24px;
+    height: 32px;
     padding: 0px;
-    width: 100%;
+}
+.vertical-center {
+    top: 50%;
+    -ms-transform: translateY(25%);
+    transform: translateY(25%);
 }
 
-button {
-    outline: none;
-    margin: 2px;
-    height: 24px;
-    border-radius: 3px;
-    border: 2px transparent;
-    background-color: rgb(131, 194, 212);
-    color: white;
-    width: 200px;
-    /* margin-left: -10px; */
+.right-align {
+    text-align: right;
+    padding-right: 10px;
 }
-
-button:hover {
-    background-color: rgb(80, 150, 190);
-}
-
 #container {
     padding: 20px;
 }
 
-.flex-container {
-    display: flex;
-}
-
-.full-width {
-    flex: 1;
-    width: 100%;
+.flex-sidebar {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 130px;
 }
