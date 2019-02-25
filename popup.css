@@ -1,9 +1,11 @@
 input {
     outline: none;
     margin: 2px;
-    border-radius: 3px;
+    margin-right: 0px;
+    /* border-radius: 3px; */
+    border-radius: 3px 0px 0px 3px;
     border: 2px transparent;
-    background-color: rgb(213, 233, 233);
+    background-color: rgb(221, 231, 238);
     height: 32px;
     padding: 0px;
     width: 180px;
@@ -11,7 +13,7 @@ input {
     transition: background-color 0.3s;
 }
 input:hover{
-    background-color: rgb(201, 228, 228);
+    background-color: rgb(226, 244, 255);
 }
 
 button {
@@ -20,30 +22,35 @@ button {
     height: 32px;
     border-radius: 3px;
     border: 2px transparent;
-    background-color: rgb(131, 194, 212);
+    background-color: rgb(20, 108, 190);
     color: white;
-    /* width: 100%; */
-    /* margin-left: -10px; */
     -webkit-transition: background-color 0.4s; /* Safari */
     transition: background-color 0.4s;
+}
+
+button:hover {
+    background-color: rgb(19, 125, 224);
+}
+
+.save-btn {
+    border-radius: 0px 3px 3px 0px;
+    margin-left: 0;
+    padding-left: 0;
+
 }
 
 .full-width {
     width: 100%;
 }
 
-button:hover {
-    background-color: rgb(80, 150, 190);
-
-}
-
 #enableBtn {
-    background-color: rgb(79, 179, 124);
+    background-color: rgb(20, 96, 167);
     height: 48px;
     width: 100%;
 }
 #enableBtn:hover {
-    background-color: rgb(62, 146, 100);
+    background-color: rgb(15, 132, 241);
+
 }
 #disableBtn {
     background-color: rgb(151, 30, 30);
@@ -82,7 +89,7 @@ button:hover {
 }
 
 .note-label {
-    color: rgb(197, 137, 6)
+    color: rgb(80, 150, 190);
 }
 
 
