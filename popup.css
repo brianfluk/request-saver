@@ -87,3 +87,6 @@ body {
     padding:0px; 
     margin: 0px;
 }
+.label {
+    color: rgb(126, 126, 126);
+}

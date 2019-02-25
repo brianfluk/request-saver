@@ -23,7 +23,7 @@
     },
     "devtools_page": "devtools.html",
     "icons": { 
-       "128": "/icons/bigM128.png" 
+       "128": "/icons/fakelogo128.png" 
     },
     "manifest_version": 2
 }
