@@ -1,5 +1,5 @@
 {
-    "name": "Request Saver",
+    "name": "Mock Server",
     "version": "1.0",
     "description": "Save network requests to/from a host and save it to the mock-server app.",
     "permissions": [
@@ -22,5 +22,8 @@
         "default_popup": "popup.html"
     },
     "devtools_page": "devtools.html",
+    "icons": { 
+       "128": "/icons/bigM128.png" 
+    },
     "manifest_version": 2
 }

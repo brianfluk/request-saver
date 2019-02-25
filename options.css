@@ -1,3 +1,4 @@
+
 input {
     outline: none;
     margin: 2px;
@@ -19,6 +20,7 @@ input {
 }
 #container {
     padding: 20px;
+    padding-top: 0px;
 }
 
 .flex-sidebar {
@@ -32,4 +34,41 @@ input {
 }
 #disableBtn {
     width: 100%;
+}
+
+
+/** Comment out this styling out if you want a boring (LAME >:O) UI */
+/* body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: rgb(252, 73, 198)
+}
+input {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+button {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#enableBtn {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#disableBtn {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+} */
+
+/** "Professional" looking UI */
+h1 {
+    font-weight: normal;
+    font-size: 32px;
+}
+input {
+    font-family: Helvetica, Arial, sans-serif;
+}
+button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+#enableBtn {
+    font-family: Helvetica, Arial, sans-serif;
+}
+#disableBtn {
+    font-family: Helvetica, Arial, sans-serif;
 }

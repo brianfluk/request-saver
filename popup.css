@@ -32,6 +32,7 @@ button:hover {
 #enableBtn {
     background-color: rgb(79, 179, 124);
     height: 48px;
+    width: 100%;
 }
 #enableBtn:hover {
     background-color: rgb(62, 146, 100);
@@ -39,6 +40,7 @@ button:hover {
 #disableBtn {
     background-color: rgb(151, 30, 30);
     height: 48px;
+    width: 100%;
 }
 #disableBtn:hover {
     background-color: rgb(117, 23, 23);
@@ -73,4 +75,15 @@ button:hover {
 
 .note-label {
     color: rgb(197, 137, 6)
+}
+
+
+/* Making it look nice */
+h1 {
+    font-weight: normal;
+    font-size: 32px;
+}
+body {
+    padding:0px; 
+    margin: 0px;
 }
