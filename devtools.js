@@ -4,6 +4,10 @@ chrome.devtools.panels.create("Mock Server",
     function(panel) {
         console.log('Mock Server Panel created');
         chrome.devtools.network.onRequestFinished.addListener(function(details){
+            if (! chrome.extension.getBackgroundPage().enabled) {
+                console.log('extension not enabled')
+                return;
+            }
             console.log("DEVTOOLS NETWORK INCOMING CALL", details);
             let mockServerURL = chrome.extension.getBackgroundPage().mockServerURL.replace(/^\/|\/$/g, '');
             let targetURL = chrome.extension.getBackgroundPage().targetURL.replace(/^\/|\/$/g, '');

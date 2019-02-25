@@ -1,5 +1,6 @@
 var targetURL = "";
 var mockServerURL = ""
+var enabled = false;
 chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ color: '#3aa757' }, function () {
         console.log('The color is green.');
@@ -8,6 +9,10 @@ chrome.runtime.onInstalled.addListener(function () {
 
     /** Listen to outgoing requests */
     chrome.webRequest.onBeforeRequest.addListener(async function(details) {
+        if (! enabled) {
+            console.log('extension not enabled')
+            return;
+        }
             chrome.storage.sync.get('targetURL', function(data) {
                 targetURL = data.targetURL;
                 chrome.storage.sync.get('mockServerURL', function(data) {

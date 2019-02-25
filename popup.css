@@ -4,7 +4,7 @@ input {
     border-radius: 3px;
     border: 2px transparent;
     background-color: rgb(213, 233, 233);
-    height: 24px;
+    height: 32px;
     padding: 0px;
     width: 180px;
 }
@@ -12,7 +12,7 @@ input {
 button {
     outline: none;
     margin: 2px;
-    height: 24px;
+    height: 32px;
     border-radius: 3px;
     border: 2px transparent;
     background-color: rgb(131, 194, 212);
@@ -23,6 +23,32 @@ button {
 
 button:hover {
     background-color: rgb(80, 150, 190);
+}
+
+#enableBtn {
+    background-color: rgb(79, 179, 124);
+    height: 48px;
+}
+#enableBtn:hover {
+    background-color: rgb(62, 146, 100);
+}
+#disableBtn {
+    background-color: rgb(151, 30, 30);
+    height: 48px;
+}
+#disableBtn:hover {
+    background-color: rgb(117, 23, 23);
+}
+
+.enableDisableBtn {
+    height: 48px;
+}
+.enableDisableMainLabel {
+    font-size: 24px;
+} 
+
+.hidden {
+    display: none;
 }
 
 .title {
@@ -42,4 +68,8 @@ button:hover {
 }
 .flex-2 {
     flex: 2;
+}
+
+.note-label {
+    color: rgb(197, 137, 6)
 }

@@ -20,11 +20,14 @@
             <button class="flex-1" id="mockServerURLBtn">Save</button>
         </div>
         <br>
-        <button>Disable</button>
-        <button id="enableBtn">Enable</button>
-        <button id="sendGETReqBtn">Send GET Request</button>
-        <button id="sendPOSTReqBtn">Send POST Request</button>
-        <button id="debuggerBtn">Attach Debugger</button>
+        <div id="enableWrapper">
+            <button id="enableBtn" class="enableDisableBtn"><span class="enableDisableMainLabel">Enable</span> <br>(currently NOT running)</button>
+            <button id="disableBtn" class="enableDisableBtn"><span class="enableDisableMainLabel">Disable</span> <br>(currently running)</button>
+        </div>
+        <!-- <button id="sendGETReqBtn">Send GET Request</button>
+        <button id="sendPOSTReqBtn">Send POST Request</button> -->
+        <br>
+        <span class="note-label">Note: The <span style="font-style: italic;">console window needs to be open</span> for this extension to work properly.</span>
     </div>
 
     <script src="popup.js"></script>
