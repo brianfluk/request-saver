@@ -40,13 +40,22 @@ input {
 /** Comment out this styling out if you want a boring (LAME >:O) UI */
 /* body {
     font-family: "Comic Sans MS", cursive, sans-serif;
-    background-color: rgb(252, 73, 198)
+    background-color: rgb(238, 255, 0);
+    background: linear-gradient(to right, yellow,orange,yellow,green,blue,indigo,violet);
+    color: rgb(225, 0, 255);
+    font-weight: bold;
+    font-style: italic;
 }
 input {
     font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 9px;
+    background: linear-gradient(red, blue);
+    color: greenyellow;
 }
 button {
     font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 9px;
+    background: linear-gradient(to right, blue,red,green,black,purple,indigo,grey);
 }
 #enableBtn {
     font-family: "Comic Sans MS", cursive, sans-serif;
@@ -54,21 +63,3 @@ button {
 #disableBtn {
     font-family: "Comic Sans MS", cursive, sans-serif;
 } */
-
-/** "Professional" looking UI */
-h1 {
-    font-weight: normal;
-    font-size: 32px;
-}
-input {
-    font-family: Helvetica, Arial, sans-serif;
-}
-button {
-    font-family: Helvetica, Arial, sans-serif;
-}
-#enableBtn {
-    font-family: Helvetica, Arial, sans-serif;
-}
-#disableBtn {
-    font-family: Helvetica, Arial, sans-serif;
-}
