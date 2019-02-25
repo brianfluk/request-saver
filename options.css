@@ -38,7 +38,7 @@ input {
 
 
 /** Comment out this styling out if you want a boring (LAME >:O) UI */
-/* body {
+body {
     font-family: "Comic Sans MS", cursive, sans-serif;
     background-color: rgb(238, 255, 0);
     background: linear-gradient(to right, yellow,orange,yellow,green,blue,indigo,violet);
@@ -62,4 +62,4 @@ button {
 }
 #disableBtn {
     font-family: "Comic Sans MS", cursive, sans-serif;
-} */
+}
