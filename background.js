@@ -2,10 +2,9 @@ var targetURL = "";
 var mockServerURL = ""
 var enabled = false;
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.sync.set({ color: '#3aa757' }, function () {
-        console.log('The color is green.');
+    chrome.storage.sync.set({ 'mockServerURL': 'http://localhost:3000/', 'targetURL': 'http://someOMSIthing' }, function() {
+        console.log('mock server URL defaulted at http//localhost:3000/, target URL at http://someOMSIthing')
     });
-    chrome.storage.sync.set({ 'mockServerURL': 'http://localhost:3000/', 'targetURL': 'http://someOMSIthing' });
 
     /** Listen to outgoing requests */
     chrome.webRequest.onBeforeRequest.addListener(async function(details) {
@@ -67,7 +66,3 @@ chrome.runtime.onInstalled.addListener(function () {
     )
 
 });
-
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
