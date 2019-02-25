@@ -39,7 +39,7 @@ chrome.devtools.panels.create("Mock Server",
                 xhr.onreadystatechange = async function () {
                     console.log('part 2 START xhr:', xhr)
                     if (xhr.readyState == 4) {
-                        console.log('YESSSSSSSSSSSS NOW SEND BACK', xhr)
+                        console.log('RESPONSE to part 2 ipr fetch', xhr)
                         var result = xhr.responseText; // save this as response
 
                         console.log('parsed xhr.responsetext', JSON.parse(xhr.responseText))

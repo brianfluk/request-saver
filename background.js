@@ -13,20 +13,19 @@ chrome.runtime.onInstalled.addListener(function () {
             return;
         }
             chrome.storage.sync.get('targetURL', function(data) {
-                targetURL = data.targetURL;
+                targetURL = data.targetURL.replace(/^\/|\/$/g, '');
                 chrome.storage.sync.get('mockServerURL', function(data) {
-                    mockServerURL = data.mockServerURL;
+                    mockServerURL = data.mockServerURL.replace(/^\/|\/$/g, '');
 
                     console.log("outgoing request: ", details);
-                    console.log('targetURL: ', targetURL, " mockserverURL", mockServerURL)
                     
                     let requestURL = new URL(details.url);
                     console.log("request url", requestURL);
+                    let requestURLOrigin = requestURL.origin.replace(/^\/|\/$/g, '')
+                    
+                    console.log('targetURL: ', targetURL, " mockserverURL", mockServerURL, "requestURL.origin",requestURL.origin)
         
-                    console.log("requestURL.origin",requestURL.origin)
-                    console.log("targetURL",targetURL)
-        
-                    if (requestURL.origin == targetURL && requestURL.origin != mockServerURL) { // disallow tracking mock server itself
+                    if (requestURLOrigin == targetURL && requestURLOrigin != mockServerURL) { // disallow tracking mock server itself
                         console.log('requestURL.origin ==', targetURL)
                         let sendUrlEndpoint = requestURL.pathname + requestURL.search;
                         let sendPayload;
@@ -40,7 +39,7 @@ chrome.runtime.onInstalled.addListener(function () {
                         
                         console.log('mockServerURL gonna send part 1,', mockServerURL)
                         var xhr = new XMLHttpRequest();
-                        xhr.open("POST", mockServerURL, true); // replace localhost3000 with hostNamePost
+                        xhr.open("POST", mockServerURL + '/', true); // replace localhost3000 with hostNamePost
                         xhr.setRequestHeader('Content-type', 'application/json');
                         xhr.onreadystatechange = function() {
                             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -55,6 +54,8 @@ chrome.runtime.onInstalled.addListener(function () {
                             "method": details.method,
                             "ipr": 1
                         }));
+                    } else {
+                        console.log(`(requestURL.origin ${requestURL.origin} NOT == targetURL ${targetURL}),    or    (targetURL == mockServerURL ${mockServerURL})`)
                     }
 
                 });
