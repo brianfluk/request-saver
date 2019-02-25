@@ -8,15 +8,25 @@
 <body>
     <div id="container">
         <h1 class="title">Mock Server</h1>
-        <div class="label">Target URL</div>
         <div class="flex-row">
-            <input class="flex-2" id="targetURL" type="text" placeholder="hostname.com"></input>
+            <div class="flex-2 label">Target URL</div> 
+            <div id="targetSaved" class="flex-1 saved transparent">
+                <img src="/icons/savedcheck.png" height="12px" width="12px">
+            </div>
+        </div>
+        <div class="flex-row">
+            <input class="flex-2" id="targetURL" type="text" placeholder="hostname.com" tabindex="1"></input>
             <button class="flex-1 save-btn" id="targetURLBtn">Save</button>
         </div>
         <br>
-        <div class="label">Mock Server URL</div>
         <div class="flex-row">
-            <input class="flex-2" id="mockServerURL" type="text" placeholder="http://localhost:3000/"></input>
+            <div class="flex-2 label">Mock Server URL</div> 
+            <span id="mockServerSaved" class="flex-1 saved transparent">
+                <img src="/icons/savedcheck.png" height="12px" width="12px">
+            </span>
+        </div>
+        <div class="flex-row">
+            <input class="flex-2" id="mockServerURL" type="text" placeholder="http://localhost:3000/" tabindex="2"></input>
             <button class="flex-1 save-btn" id="mockServerURLBtn">Save</button>
         </div>
         <br>
