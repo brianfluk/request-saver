@@ -1,9 +1,12 @@
 var targetURL = "";
 var mockServerURL = ""
+var defaultTarget = "https://jsonplaceholder.typicode.com";
+var defaultMock = "http://localhost:3000/";
+
 var enabled = false;
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.sync.set({ 'mockServerURL': 'http://localhost:3000/', 'targetURL': 'http://someOMSIthing' }, function() {
-        console.log('mock server URL defaulted at http//localhost:3000/, target URL at http://someOMSIthing')
+    chrome.storage.sync.set({ 'mockServerURL': defaultMock, 'targetURL': defaultTarget }, function() {
+        console.log(`mock server URL defaulted at ${defaultMock}, target URL at ${defaultTarget}`)
     });
 
     /** Listen to outgoing requests */
@@ -44,7 +47,7 @@ chrome.runtime.onInstalled.addListener(function () {
                         xhr.onreadystatechange = function() {
                             if (xhr.readyState == 4 && xhr.status == 200) {
                                 var result = xhr.responseText;
-                                console.log('result', result);
+                                console.log('\tresult', result);
                             }
                         };
                         xhr.send(JSON.stringify({ // part 1
