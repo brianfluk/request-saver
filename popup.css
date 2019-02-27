@@ -112,6 +112,14 @@ button:active {
     transition: opacity 0.8s ease-in;
 }
 
+#whitelistDisplay {
+    width: 212px;
+    overflow: scroll;
+    list-style-type: none;
+    padding-left: 0px;
+    padding-bottom: 16px;
+    max-height: 150px;
+}
 
 /* Making it look nice */
 h1 {

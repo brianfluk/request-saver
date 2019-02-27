@@ -3,11 +3,18 @@ var mockServerURL = ""
 var defaultTarget = "https://jsonplaceholder.typicode.com";
 var defaultMock = "http://localhost:3000/";
 
+var targetWhitelist = [
+    "https://jsonplaceholder.typicode.com",
+    "https://somerandomplaceholdersite.com"
+]
+
 var enabled = false;
 chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ 'mockServerURL': defaultMock, 'targetURL': defaultTarget }, function() {
         console.log(`mock server URL defaulted at ${defaultMock}, target URL at ${defaultTarget}`)
     });
+
+    chrome.storage.local.set({'targetWhitelist': targetWhitelist})
 
     /** Listen to outgoing requests */
     chrome.webRequest.onBeforeRequest.addListener(async function(details) {

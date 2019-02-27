@@ -67,3 +67,22 @@ document.getElementById('disableBtn').addEventListener('click', function() {
     document.getElementById('disableBtn').setAttribute("class", "hidden")
     document.getElementById('enableBtn').removeAttribute("class", "hidden")
 })
+
+
+document.getElementById('fetchWhitelistBtn').addEventListener('click', function() {
+    fetchWhitelist();
+})
+function fetchWhitelist() {
+    chrome.storage.local.get('targetWhitelist', function(data){
+        console.log('targetWhitelist',data.targetWhitelist)
+        let whitelist = data.targetWhitelist;
+        let whitelistDisplay = document.getElementById('whitelistDisplay');
+        whitelistDisplay.innerHTML = ""
+        whitelist.map((value, index) => {
+            let item = document.createElement('li');
+            item.innerHTML = value;
+            whitelistDisplay.appendChild(item)
+        })
+
+    })
+}
