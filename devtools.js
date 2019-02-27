@@ -4,13 +4,15 @@ var updateBody = function (mockFormat, content, loggingId="") {
     console.log(loggingId, mockFormat)
     return JSON.stringify(mockFormat);
 }
-
+var callCountTotal = 1;
 chrome.devtools.panels.create("Mock Server",
     "/icons/icon16.png",
     "options.html",
     function(panel) {
         console.log('Mock Server Panel created');
         chrome.devtools.network.onRequestFinished.addListener(async function(details){
+            let callCount = callCountTotal;
+            callCountTotal ++;
             try {
                 if (! chrome.extension.getBackgroundPage().enabled) {
                     console.log('Extension not enabled.')
@@ -20,7 +22,7 @@ chrome.devtools.panels.create("Mock Server",
                 console.log('Extension not enabled. See', err)
                 return
             }
-            console.log("DEVTOOLS NETWORK INCOMING CALL", details);
+            console.log(`${callCount} `, " DEVTOOLS NETWORK INCOMING CALL", details);
             let loggingId = "";
             loggingId = details.request.method + ": "
 
@@ -33,14 +35,14 @@ chrome.devtools.panels.create("Mock Server",
 
             details.getContent(async function(content, encoding) {
                 if (requestFullURL.origin == targetURL) {
-                    console.log(loggingId, 'should continue')
+                    console.log(`${callCount} `, loggingId, `SHOULD CONTINUE. target endpoint == origin == ${targetURL}`)
                 } else {
-                    console.log(loggingId, `SKIPPING. target endpoint is ${targetURL} but this origin is ${requestFullURL.origin}`)
+                    console.log(`${callCount} `, loggingId, `SKIPPING. target endpoint is ${targetURL} but this origin is ${requestFullURL.origin}`)
                     return
                 }
                 
                 let originalPayload = (details.request.postData) ? JSON.parse(details.request.postData.text) : null;
-                console.log(loggingId, "mockServerURL", mockServerURL, "\ntargetURL", targetURL, `\noriginalPayload:${originalPayload}\ndesiredEndpoint:${desiredEndpoint},\ndetails.request.method:${details.request.method}`)
+                console.log(`${callCount} `, loggingId, "mockServerURL", mockServerURL, "\ntargetURL", targetURL, `\noriginalPayload:${originalPayload}\ndesiredEndpoint:${desiredEndpoint},\ndetails.request.method:${details.request.method}`)
 
                 fetch(mockServerURL + desiredEndpoint, {
                     method: details.request.method,
