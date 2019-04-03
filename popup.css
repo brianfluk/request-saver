@@ -51,21 +51,21 @@ button:active {
     width: 100%;
 }
 
-#enableBtn {
+#recordBtn {
     height: 48px;
     width: 100%;
 }
 
-#disableBtn {
+#disableRecordBtn {
     background-color: rgb(151, 30, 30);
     height: 48px;
     width: 100%;
 }
-#disableBtn:hover {
+#disableRecordBtn:hover {
     background-color: rgb(117, 23, 23);
 }
 
-.enableDisableMainLabel {
+.recordingMainLabel {
     font-size: 24px;
 } 
 

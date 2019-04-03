@@ -29,10 +29,10 @@ input {
     flex-basis: 130px;
 }
 
-#enableBtn {
+#recordBtn {
     width: 100%;
 }
-#disableBtn {
+#disableRecordBtn {
     width: 100%;
 }
 
@@ -57,9 +57,9 @@ button {
     border-radius: 9px;
     background: linear-gradient(to right, blue,red,green,black,purple,indigo,grey);
 }
-#enableBtn {
+#recordBtn {
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
-#disableBtn {
+#disableRecordBtn {
     font-family: "Comic Sans MS", cursive, sans-serif;
 }

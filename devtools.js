@@ -14,12 +14,12 @@ chrome.devtools.panels.create("Mock Server",
             let callCount = callCountTotal;
             callCountTotal ++;
             try {
-                if (! chrome.extension.getBackgroundPage().enabled) {
-                    console.log('Extension not enabled.')
+                if (! chrome.extension.getBackgroundPage().recording) {
+                    console.log('Extension not recording.')
                     return;
                 }
             } catch (err) {
-                console.log('Extension not enabled. See', err)
+                console.log('Extension not recording. See', err)
                 return
             }
             console.log(`${callCount} `, " DEVTOOLS NETWORK INCOMING CALL", details);
