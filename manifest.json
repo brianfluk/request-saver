@@ -11,7 +11,8 @@
         "http://*/",
         "*://*/",
         "<all_urls>",
-        "tabs"
+        "tabs",
+        "webRequestBlocking"
     ],
     "options_page": "options.html",
     "background": {

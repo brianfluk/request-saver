@@ -51,17 +51,17 @@ button:active {
     width: 100%;
 }
 
-#enableBtn {
+#enableBtn, #isNotRedirectingBtn {
     height: 48px;
     width: 100%;
 }
 
-#disableBtn {
+#disableBtn, #isRedirectingBtn {
     background-color: rgb(151, 30, 30);
     height: 48px;
     width: 100%;
 }
-#disableBtn:hover {
+#disableBtn:hover, #isRedirectingBtn:hover {
     background-color: rgb(117, 23, 23);
 }
 

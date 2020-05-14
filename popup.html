@@ -31,11 +31,21 @@
         </div>
         <br>
         <div id="enableWrapper">
-            <button id="enableBtn" class="full-width"><span class="enableDisableMainLabel">Enable</span> <br>(currently NOT running)</button>
-            <button id="disableBtn" class="full-width"><span class="enableDisableMainLabel">Disable</span> <br>(currently running)</button>
+            <button id="enableBtn" class="full-width"><span class="enableDisableMainLabel">Enable recording</span> </button>
+            <button id="disableBtn" class="full-width"><span class="enableDisableMainLabel">Disable recording</span> </button>
+
+            <!-- <button id="enableBtn" class="full-width"><span class="enableDisableMainLabel">Enable recording</span> <br>(currently NOT running)</button>
+            <button id="disableBtn" class="full-width"><span class="enableDisableMainLabel">Disable recording</span> <br>(currently running)</button> -->
+        </div>
+        <div id="enableWrapper">
+            <button id="isNotRedirectingBtn" class="full-width"><span class="enableDisableMainLabel">Start redirecting</span> <br>(will stop recording)</button>
+            <button id="isRedirectingBtn" class="full-width"><span class="enableDisableMainLabel">Stop redirecting</span></button>
+            
+            <!-- <button id="isNotRedirectingBtn" class="full-width"><span class="enableDisableMainLabel">Start redirecting</span> <br>(currently NOT redirecting)</button>
+            <button id="isRedirectingBtn" class="full-width"><span class="enableDisableMainLabel">Stop redirecting</span> <br>(currently redirecting)</button> -->
         </div>
         <br>
-        <span class="note-label">Note: The <span style="font-style: italic;">console window needs to be open</span> for this extension to work properly.</span>
+        <span class="note-label">Note: <span style="font-style: italic;">The console/devtools window needs to be open for this extension to work properly.</span></span>
     </div>
 
     <script src="popup.js"></script>

@@ -57,6 +57,12 @@ if (chrome.extension.getBackgroundPage().enabled == false) {
     document.getElementById('enableBtn').setAttribute("class", "hidden")
 }
 
+if (chrome.extension.getBackgroundPage().isRedirecting == false) {
+    document.getElementById('isRedirectingBtn').setAttribute("class", "hidden")
+} else {
+    document.getElementById('isNotRedirectingBtn').setAttribute("class", "hidden")
+}
+
 document.getElementById('enableBtn').addEventListener('click', function() {
     chrome.extension.getBackgroundPage().enabled = true;
     document.getElementById('enableBtn').setAttribute("class", "hidden")
@@ -67,3 +73,23 @@ document.getElementById('disableBtn').addEventListener('click', function() {
     document.getElementById('disableBtn').setAttribute("class", "hidden")
     document.getElementById('enableBtn').removeAttribute("class", "hidden")
 })
+
+
+document.getElementById('isNotRedirectingBtn').addEventListener('click', function() {
+    chrome.extension.getBackgroundPage().isRedirecting = true;
+    chrome.extension.getBackgroundPage().enabled = false;
+    document.getElementById('isNotRedirectingBtn').setAttribute("class", "hidden")
+    document.getElementById('isRedirectingBtn').removeAttribute("class", "hidden")
+    
+    // disable --> enable
+    document.getElementById('disableBtn').setAttribute("class", "hidden")
+    document.getElementById('enableBtn').removeAttribute("class", "hidden")
+})
+document.getElementById('isRedirectingBtn').addEventListener('click', function() {
+    chrome.extension.getBackgroundPage().isRedirecting = false;
+    chrome.extension.getBackgroundPage().enabled = false;
+    document.getElementById('isRedirectingBtn').setAttribute("class", "hidden")
+    document.getElementById('isNotRedirectingBtn').removeAttribute("class", "hidden")
+})
+
+
